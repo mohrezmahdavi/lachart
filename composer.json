@@ -11,5 +11,12 @@
         "psr-4": {
             "Comma\\Lachart\\" : "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Comma\\Lachart\\LachartServiceProvider"
+            ]
+        }
     }
 }
