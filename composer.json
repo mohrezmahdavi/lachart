@@ -1,0 +1,15 @@
+{
+    "name" : "comma/lachart",
+    "description": "Chartjs Package For Laravel",
+    "authors": [
+        {
+            "name": "Mohammadreza Mahdavi",
+            "email": "mrmahdavi38@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Comma\\Lachart\\" : "src/"
+        }
+    }
+}
