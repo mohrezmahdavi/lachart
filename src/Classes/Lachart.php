@@ -48,9 +48,10 @@ class Lachart
         $this->validateOptions($this->options);
 
         try {
-            if (!class_exists($this->options['model'])) {
-                return [];
-            }
+            // if (!class_exists($this->options['model'])) {
+            //     return [];
+            // }
+            
 
             $dataset = [];
             $conditions = $this->options['conditions'] ??
@@ -61,7 +62,7 @@ class Lachart
                     throw new \Exception('Top results value should be integer');
                 }
 
-                $query = $this->options['model']::when(isset($this->options['filter_field']), function ($query) {
+                $query = $this->options['model']->when(isset($this->options['filter_field']), function ($query) {
 
                     if (isset($this->options['filter_days'])) {
                         return $query->where(
@@ -279,7 +280,7 @@ class Lachart
      */
     public function renderHtml()
     {
-        return view('laravelchart::html', ['options' => $this->options]);
+        return view('lachart::html', ['options' => $this->options]);
     }
 
     /**
@@ -287,7 +288,7 @@ class Lachart
      */
     public function renderJs()
     {
-        return view('laravelchart::javascript', ['options' => $this->options, 'datasets' => $this->datasets]);
+        return view('lachart::javascript', ['options' => $this->options, 'datasets' => $this->datasets]);
     }
 
     /**
