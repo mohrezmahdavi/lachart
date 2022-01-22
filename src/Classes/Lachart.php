@@ -39,6 +39,22 @@ class Lachart
     }
 
 
+    /**
+     * LaravelChart Method.
+     * @param array $chart_options
+     * @throws \Exception
+     */
+    public function getArrayOfCharts(array $arrayCharts)
+    {
+        foreach ($arrayCharts as $arg) {
+            $this->options = $arg;
+            $this->options['chart_name'] = strtolower(Str::slug($arg['chart_title'], '_'));
+            $this->datasets[] = $this->prepareData();
+        }
+        return $this->datasets;
+    }
+
+
         /**
      * @return array
      * @throws \Exception
