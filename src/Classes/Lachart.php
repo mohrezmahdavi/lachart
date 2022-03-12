@@ -55,7 +55,7 @@ class Lachart
     }
 
 
-        /**
+    /**
      * @return array
      * @throws \Exception
      */
@@ -67,7 +67,7 @@ class Lachart
             // if (!class_exists($this->options['model'])) {
             //     return [];
             // }
-            
+
 
             $dataset = [];
             $conditions = $this->options['conditions'] ??
@@ -157,7 +157,7 @@ class Lachart
                                     return '';
                                 }
                             } else if ($entry->{$this->options['group_by_field']} instanceof \Carbon\Carbon) {
-                                return $entry->{$this->options['group_by_field']}
+                                return verta($entry->{$this->options['group_by_field']})
                                     ->format($this->options['date_format'] ?? self::GROUP_PERIODS[$this->options['group_by_period']]);
                             } else {
                                 if ($entry->{$this->options['group_by_field']} && $this->options['group_by_field_format']) {
@@ -238,7 +238,6 @@ class Lachart
 
                 $dataset = ['name' => $this->options['chart_title'], 'color' => $condition['color'], 'chart_color' => $this->options['chart_color'] ?? '', 'fill' => $condition['fill'], 'data' => $data];
             }
-
             return $dataset;
         } catch (\Error $ex) {
             throw new \Exception('Laravel Charts error: ' . $ex->getMessage());
