@@ -30,17 +30,17 @@
                     @elseif (isset($dataset['chart_color']) && $dataset['chart_color'] != '')
                         borderColor: 'rgba({{ $dataset['chart_color'] }})',
                     @else
-                        borderColor: 'rgba({{ rand(0,255) }}, {{ rand(0,255) }}, {{ rand(0,255) }}, 0.2)',
+                        borderColor: 'rgba({{ rand(0,255) }}, {{ rand(0,255) }}, {{ rand(0,255) }}, 0.7)',
                     @endif
                 @elseif ($options['chart_type'] == 'pie')
                     backgroundColor: [
                         @foreach ($dataset['data'] as $group => $result)
-                            'rgba({{ rand(0,255) }}, {{ rand(0,255) }}, {{ rand(0,255) }}, 0.2)',
+                            'rgba({{ rand(0,255) }}, {{ rand(0,255) }}, {{ rand(0,255) }}, 0.6)',
                         @endforeach
                     ],
                 @elseif ($options['chart_type'] == 'bar' && isset($dataset['chart_color']) && $dataset['chart_color'] != '')
                     borderColor: 'rgba({{ $dataset['chart_color'] }})',
-                    backgroundColor: 'rgba({{ $dataset['chart_color'] }}, .2)',
+                    backgroundColor: 'rgba({{ $dataset['chart_color'] }}, .6)',
                 @endif
                 borderWidth: 2
             },
