@@ -181,9 +181,15 @@ class Lachart
                             if (isset($this->options['field_distinct'])) {
                                 $entries = $entries->unique($this->options['field_distinct']);
                             }
+                            $count_entries = $entries->count();
                             $aggregate = $entries->{$this->options['aggregate_function'] ?? 'count'}($this->options['aggregate_field'] ?? '');
+                            
                             if (@$this->options['aggregate_transform']) {
                                 $aggregate = $this->options['aggregate_transform']($aggregate);
+                            }
+
+                            if (@$this->options['aggregate_avg_count_record']) {
+                                $aggregate = $aggregate / $count_entries;
                             }
                             return $aggregate;
                         })
