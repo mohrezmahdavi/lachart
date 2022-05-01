@@ -11,7 +11,7 @@ class Lachart
 {
 
     public $options     = [];
-    private $datasets   = [];
+    public $datasets   = [];
 
     /**
      * Group Periods
